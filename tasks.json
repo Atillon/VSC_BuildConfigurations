@@ -1,0 +1,119 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        /*-------------MULTI FOLDER-------------*/
+        { //"Build_Exe[c++|SDL2_short]"
+            "type": "shell",
+            "label": "Build_Exe[c++|SDL2_short]",
+            "command": "g++ -g ${fileBasename} -o ${fileBasenameNoExtension}.exe *.o -I C:/libsdl/include -L C:/libsdl/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -Wall",
+            "dependsOn": [
+                "Build_ObjFiles[c++|SDL2]"
+            ]
+        },
+        { //"Build_ObjFiles[c++|SDL2]"
+            "type": "shell",
+            "label": "Build_ObjFiles[c++|SDL2]",
+            "command": "g++ -c -g ./lib/*.cpp -I lib -I C:/libsdl/include -L C:/libsdl/lib -Wall"
+        },
+        { //"Build_Exe[c++]"
+            "type": "shell",
+            "label": "Build_Exe[c++]",
+            "command": "g++ -g ${fileBasename} -o ${fileBasenameNoExtension}.exe *.o -Wall",
+            "dependsOn": [
+                "Build_ObjFiles[c++]"
+            ]
+        },
+        { //"Build_ObjFiles[c++]"
+            "type": "shell",
+            "label": "Build_ObjFiles[c++]",
+            "command": "g++ -c -g ./lib/*.cpp -Wall"
+        },
+        { //"Build_Exe[c90]"
+            "type": "shell",
+            "label": "Build_Exe[c90]",
+            "command": "gcc -g ${fileBasename} -o ${fileBasenameNoExtension}.exe *.o -Wall -std=c90",
+            "dependsOn": [
+                "Build_ObjFiles[c90]"
+            ]
+        },
+        { //"Build_ObjFiles[c90]"
+            "type": "shell",
+            "label": "Build_ObjFiles[c90]",
+            "command": "gcc -c -g ./lib/*.c -Wall -std=c99"
+        },
+        /*-------------SINGLE FOLDER-------------*/
+        { //"Single_Folder_Exe[c++|SDL2_short]"
+            "type": "shell",
+            "label": "Single_Folder_Exe[c++|SDL2_short]",
+            "command": "g++ -g ${fileBasename} *.o -I C:/libsdl/include -L C:/libsdl/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -o ${fileBasenameNoExtension}.exe -Wall",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Single_Folder_ObjFiles[c++|SDL2]",
+                "CleanObjFiles"
+            ]
+        },
+        { //"Single_Folder_ObjFiles[c++|SDL2]"
+            "type": "shell",
+            "label": "Single_Folder_ObjFiles[c++|SDL2]",
+            "command": "g++ -c -g ./*.cpp -I lib -I C:/libsdl/include -L C:/libsdl/lib -Wall"
+        },
+        { //"Single_Folder_Exe[c++]"
+            "type": "shell",
+            "label": "Single_Folder_Exe[c++]",
+            "command": "g++ -g ${fileBasename} -o ${fileBasenameNoExtension}.exe *.o -Wall",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Single_Folder_ObjFiles[c++]",
+                "CleanObjFiles"
+            ]
+        },
+        { //"Single_Folder_ObjFiles[c++]"
+            "type": "shell",
+            "label": "Single_Folder_ObjFiles[c++]",
+            "command": "g++ -c -g ./*.cpp -Wall"
+        },
+        { //"Single_Folder_Exe[c90]"
+            "type": "shell",
+            "label": "Single_Folder_Exe[c90]",
+            "command": "gcc -g ${fileBasename} -o ${fileBasenameNoExtension}.exe *.o -Wall -std=c90",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Single_Folder_ObjFiles[c90]",
+                "CleanObjFiles"
+            ]
+        },
+        { //"Single_Folder_ObjFiles[c90]"
+            "type": "shell",
+            "label": "Single_Folder_ObjFiles[c90]",
+            "command": "gcc -c -g ./*.c -Wall -std=c90"
+        },
+        { //"CleanObjFiles"
+            "type": "shell",
+            "label": "CleanObjFiles",
+            "command": "del ./${fileBasenameNoExtension}.o"
+        },
+        /*-------------SINGLE FILE-------------*/
+        { //"Single_File[c++|SDL2]"
+            "type": "shell",
+            "label": "Single_File[c++|SDL2]",
+            "command": "g++ -g ${fileBasename} -o ${fileBasenameNoExtension}.exe -I C:/libsdl/include -L C:/libsdl/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -Wall",
+        },
+        { //"Single_File[c++]"
+            "type": "shell",
+            "label": "Single_File[c++]",
+            "command": "g++ -g ${fileBasename} -o ${fileBasenameNoExtension}.exe -Wall"
+        },
+        { //"Single_File[c90]"
+            "type": "shell",
+            "label": "Single_File[c90]",
+            "command": "gcc -g ${fileBasename} -o ${fileBasenameNoExtension}.exe -Wall -std=c90"
+        },
+        { //"Single_File_Exe[c90|custom_args]"
+            "type": "shell",
+            "label": "Single_File_Exe[c90|custom_args]",
+            "command": "echo gcc -g ${fileBasename} -o ${fileBasenameNoExtension}.exe -Wall -std=c90"
+        }
+    ]
+}

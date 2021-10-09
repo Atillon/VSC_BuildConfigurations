@@ -1,0 +1,139 @@
+{
+    "editor.formatOnSave": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/**",
+        "C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/include"
+    ],
+    "C_Cpp.default.compilerPath": "C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/g++.exe",
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            /*-------------MULTI FOLDER-------------*/
+            { //"Build Project [c++|SDL2]"
+                "name": "Build Project [c++|SDL2]",
+                "type": "cppdbg",
+                "preLaunchTask": "Build_Exe[c++|SDL2_short]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            { //"Build Project [c++]"
+                "name": "Build Project [c++]",
+                "type": "cppdbg",
+                "preLaunchTask": "Build_Exe[c++]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            { //"Build Project [c90]"
+                "name": "Build Project [c90]",
+                "type": "cppdbg",
+                "preLaunchTask": "Build_Exe[c90]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            /*-------------SINGLE FOLDER-------------*/
+            { //"Single Folder [c++|SDL2]"
+                "name": "Single Folder [c++|SDL2]",
+                "type": "cppdbg",
+                "preLaunchTask": "Single_Folder_Exe[c++|SDL2_short]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            { //"Single Folder [c++]"
+                "name": "Single Folder [c++]",
+                "type": "cppdbg",
+                "preLaunchTask": "Single_Folder_Exe[c++]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            { //"Single Folder [c90]"
+                "name": "Single Folder [c90]",
+                "type": "cppdbg",
+                "preLaunchTask": "Single_Folder_Exe[c90]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            /*-------------SINGLE FILE-------------*/
+            { //"Single File [c++|SDL2]"
+                "name": "Single File [c++|SDL2]",
+                "type": "cppdbg",
+                "preLaunchTask": "Single_File[c++|SDL2]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            { //"Single File [c++]"
+                "name": "Single File [c++]",
+                "type": "cppdbg",
+                "preLaunchTask": "Single_File[c++]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "args": [
+                    "x[-20|20]",
+                    "y[-50|50]",
+                    "test.txt",
+                    "f(x)=k*x+d",
+                    "150x20"
+                ],
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            { //"Single File [c90]"
+                "name": "Single File [c90]",
+                "type": "cppdbg",
+                "preLaunchTask": "Single_File[c90]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            },
+            { //"Single File [c90|custom args]"
+                "name": "Single File [c90|custom args]",
+                "type": "cppdbg",
+                "preLaunchTask": "Single_File_Exe[c90|custom_args]",
+                "request": "launch",
+                "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "args": [
+                    "-i",
+                    "20",
+                    "C:/Users/atill/Desktop/Meine Dateien/Universitaet/SS21/Programmieren 1/UE5/test.txt",
+                    "C:/Users/atill/Desktop/Meine Dateien/Universitaet/SS21/Programmieren 1/UE5/test1.txt"
+                ],
+                "cwd": "${workspaceFolder}",
+                "MIMode": "gdb",
+                "miDebuggerPath": "gdb.exe"
+            }
+        ]
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "python.defaultInterpreterPath": "C:\\Users\\atill\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.languageServer": "Pylance",
+    "terminal.integrated.tabs.enabled": true,
+    "editor.wordWrap": "on",
+    "terminal.integrated.gpuAcceleration": "on",
+    "terminal.integrated.cursorStyle": "line",
+}
